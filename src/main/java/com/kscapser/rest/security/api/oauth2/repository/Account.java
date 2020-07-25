@@ -19,7 +19,6 @@ import java.util.Set;
 @NoArgsConstructor
 public class Account extends BaseEntity implements Serializable, UserDetails {
 
-
     private static final long serialVersionUID = -6803910351779219739L;
     @Column(name = "user_name")
     private String userName;

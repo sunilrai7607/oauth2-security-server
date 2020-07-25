@@ -13,9 +13,9 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class CustomUserDetails implements ICustomUserDetails {
 
-
     @Autowired
     private AccountRepository accountRepository;
+
     @Autowired
     private PasswordEncoder encoder;
 
