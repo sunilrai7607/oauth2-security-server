@@ -33,18 +33,16 @@ public class Account extends BaseEntity implements Serializable, UserDetails {
 
     @Column(name = "credentials_expired")
     private boolean credentialsNonExpired;
-
-    public Account(String userName, String password) {
-        this.userName = userName;
-        this.password = password;
-    }
-
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "role_user", joinColumns = {
             @JoinColumn(name = "user_id", referencedColumnName = "id")}, inverseJoinColumns = {
             @JoinColumn(name = "role_id", referencedColumnName = "id")})
     private List<CustomRole> roles;
 
+    public Account(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
+    }
 
     /**
      * Returns the authorities granted to the user. Cannot return <code>null</code>.

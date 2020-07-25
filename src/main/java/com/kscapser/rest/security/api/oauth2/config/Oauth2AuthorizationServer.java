@@ -4,7 +4,6 @@ import com.kscapser.rest.security.api.oauth2.common.properties.Oauth2Config;
 import com.kscapser.rest.security.api.oauth2.common.utility.JwtTokenUtility;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
@@ -16,7 +15,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
-import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
@@ -48,13 +46,13 @@ public class Oauth2AuthorizationServer extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         log.info("ClientDetailsServiceConfigurer: Step 2");
-       clients.inMemory()
-               .withClient("client")
-               .secret(encoder.encode("secret"))
-               .authorizedGrantTypes("authorization_code", "refresh_token", "password", "implicit")
-               .scopes("all")
-               .refreshTokenValiditySeconds(10)
-               .accessTokenValiditySeconds(10);
+        clients.inMemory()
+                .withClient("client")
+                .secret(encoder.encode("secret"))
+                .authorizedGrantTypes("authorization_code", "refresh_token", "password", "implicit")
+                .scopes("all")
+                .refreshTokenValiditySeconds(10)
+                .accessTokenValiditySeconds(10);
 
     }
 
@@ -74,12 +72,12 @@ public class Oauth2AuthorizationServer extends AuthorizationServerConfigurerAdap
     }
 
     @Bean
-    public TokenStore tokenStore(){
+    public TokenStore tokenStore() {
         return new InMemoryTokenStore();
     }
 
     @Bean
-    public PasswordEncoder encoder(){
+    public PasswordEncoder encoder() {
         return new BCryptPasswordEncoder();
     }
 }
