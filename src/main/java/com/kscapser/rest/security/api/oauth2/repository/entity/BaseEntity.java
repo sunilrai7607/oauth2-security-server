@@ -1,4 +1,4 @@
-package com.kscapser.rest.security.api.oauth2.repository;
+package com.kscapser.rest.security.api.oauth2.repository.entity;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

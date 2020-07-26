@@ -1,16 +1,14 @@
 package com.kscapser.rest.security.api.oauth2.common.utility;
 
-import com.kscapser.rest.security.api.oauth2.repository.Account;
+import com.kscapser.rest.security.api.oauth2.repository.entity.Account;
 import com.kscapser.rest.security.api.oauth2.repository.AccountRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
-import org.springframework.stereotype.Component;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

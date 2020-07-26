@@ -1,5 +1,6 @@
 package com.kscapser.rest.security.api.oauth2.repository;
 
+import com.kscapser.rest.security.api.oauth2.repository.entity.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

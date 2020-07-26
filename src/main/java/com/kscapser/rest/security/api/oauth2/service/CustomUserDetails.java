@@ -3,6 +3,7 @@ package com.kscapser.rest.security.api.oauth2.service;
 import com.kscapser.rest.security.api.oauth2.repository.AccountRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AccountStatusUserDetailsChecker;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -34,7 +35,7 @@ public class CustomUserDetails implements ICustomUserDetails {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         log.info("Calling loadUserByUsername {} ", username);
-        return accountRepository.findByUserName(username).map(account -> new User(
+        User userDetail = accountRepository.findByUserName(username).map(account -> new User(
                 account.getUsername(),
                 encoder.encode(account.getPassword()),
                 account.isEnabled(),
@@ -43,5 +44,7 @@ public class CustomUserDetails implements ICustomUserDetails {
                 account.isAccountNonLocked(),
                 account.getAuthorities()
         )).orElseThrow(() -> new UsernameNotFoundException("Invalid user details "));
+        new AccountStatusUserDetailsChecker().check(userDetail);
+        return userDetail;
     }
 }

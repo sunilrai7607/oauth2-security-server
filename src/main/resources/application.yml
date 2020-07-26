@@ -1,3 +1,5 @@
+server:
+  port: 9090
 oauth2-config:
   jksConfigFileName: security/lms-dev-keystore.jks
   keyPassword: changeit
