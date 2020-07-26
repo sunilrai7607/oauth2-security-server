@@ -20,10 +20,10 @@ INSERT INTO PERMISSION_ROLE (PERMISSION_ID, ROLE_ID) VALUES
 	INSERT INTO ACCOUNT (
     user_name,PASSWORD,
     EMAIL,ENABLED,ACCOUNT_EXPIRED,CREDENTIALS_EXPIRED,ACCOUNT_LOCKED) VALUES (
-    'admin','$2y$12$olTuy84WC.rsx0/BNg4TDOqE2uiOd.5g5UK6eMwGqpWiRINAywBG6',
-    'william@gmail.com',1,1,1,1),
+    'admin','admin',
+    'sunilultra@gmail.com',1,1,1,1),
     ('user','$2a$10$EOs8VROb14e7ZnydvXECA.4LoIhPOoFHKvVF/iBZ/ker17Eocz4Vi',
-    'john@gmail.com',1,1,1,1);
+    'sunilultra@gmail.com',1,1,1,1);
 
 
     INSERT INTO ROLE_USER (ROLE_ID, USER_ID)
