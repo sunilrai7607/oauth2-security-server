@@ -47,7 +47,7 @@ INSERT INTO PERMISSION_ROLE (PERMISSION_ID, ROLE_ID) VALUES
     'c825bfbd-c202-40a9-8fcd-d9386195687a','$2y$12$olTuy84WC.rsx0/BNg4TDOqE2uiOd.5g5UK6eMwGqpWiRINAywBG6',
 	'USER_CLIENT_RESOURCE,USER_ADMIN_RESOURCE',
 	'role_admin,role_user',
-	'authorization_code,password,refresh_token,implicit',
+	'authorization_code,password,refresh_token,implicit,client_credentials',
 	NULL,NULL,
 	900,3600,
 	'{}',NULL);
