@@ -60,7 +60,9 @@ public class Oauth2AuthorizationServer extends AuthorizationServerConfigurerAdap
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         log.info("ClientDetailsServiceConfigurer: Step 2");
         JdbcClientDetailsService jdbcClientDetailsService = new JdbcClientDetailsService(dataSource);
-        jdbcClientDetailsService.listClientDetails().stream().forEach(clientDetails -> log.info("ClientId : {} ",clientDetails.getClientId()));
+        jdbcClientDetailsService.listClientDetails().stream().forEach(
+                clientDetails -> log.info("ClientId >>>>>>>>>>>>> : {} ",clientDetails.getClientId())
+        );
         // client info store in inMemory
 //        clients.inMemory()
 //                .withClient("client")
@@ -70,6 +72,12 @@ public class Oauth2AuthorizationServer extends AuthorizationServerConfigurerAdap
 //                .refreshTokenValiditySeconds(10)
 //                .accessTokenValiditySeconds(10);
         clients.jdbc(dataSource).passwordEncoder(encoder).build();
+
+//        clients.inMemory()
+//                .withClient("javainuse-client")
+//                .secret("javainuse-secret")
+//                .authorizedGrantTypes("client_credentials")
+//                .scopes("resource-server-read", "resource-server-write");
 
     }
 

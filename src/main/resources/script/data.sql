@@ -50,4 +50,12 @@ INSERT INTO PERMISSION_ROLE (PERMISSION_ID, ROLE_ID) VALUES
 	'authorization_code,password,refresh_token,implicit,client_credentials',
 	NULL,NULL,
 	900,3600,
+	'{}',NULL),
+	(
+    '96dc9e61-dca3-44c4-810d-2ebaea53fcb0','$2y$12$olTuy84WC.rsx0/BNg4TDOqE2uiOd.5g5UK6eMwGqpWiRINAywBG6',
+	'resource-server-read,resource-server-write',
+	'client',
+	'authorization_code,refresh_token,implicit,client_credentials',
+	NULL,NULL,
+	900,3600,
 	'{}',NULL);
